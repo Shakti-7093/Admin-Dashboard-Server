@@ -35,7 +35,13 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+// Allow requests from a specific origin
+const corsOptions = {
+    origin: 'https://admin-dashboard-delta-teal.vercel.app',
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
 
 /* ROUTES */
 app.use("/client", clientRoutes);
