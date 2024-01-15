@@ -31,13 +31,12 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(helmet());
-app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors({
-  origin: 'https://admin-dashboard-delta-teal.vercel.app',
+  origin: ['https://admin-dashboard-delta-teal.vercel.app', 'http://localhost:3000'],
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 }));
 
