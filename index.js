@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // }));
 
 app.use(cors({
-  origin: 'https://shaktidevelopersdashbord.vercel.app/dashboard',
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
